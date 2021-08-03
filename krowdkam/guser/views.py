@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from client.models import *
+from guser.models import *
 from .serializers import *
 from rest_framework import status
 from rest_framework.views import APIView
@@ -144,4 +145,43 @@ def zones(request, id):
 
 #     print(res)
 #     return Response({"success": True, "data": res, "code": 1})
+
+
+@api_view(['POST'])
+def subscription(request):
+    #permission_classes = (IsAuthenticated,)
+
+    uid = request.POST.get('uid')
+    oid = request.POST.get('oid')
+
+    try:
+
+        user = User.objects.get(id=uid)
+        organization = Organization.objects.get(id=oid)
+        subscription_obj = OrgSubscription(user=user,organization=organization)
+        subscription_obj.save()
+        return Response({"success": True, "data": "added sucessfully"}, status=status.HTTP_200_OK)
+    except:
+        return Response({'success': False, "message": "Bad Request"}, status=status.HTTP_400_BAD_REQUEST)
+
+
+import pywhatkit
+@api_view(['GET'])
+def whatsapp_user(request):
+    try:
+        subscription_objs = OrgSubscription.objects.all()
+        for item in subscription_objs:
+            number = str(item.user.mobile)
+            organization_obj = item.organization
+            analysis = AnalysisReport.objects.filter(organization=organization_obj)
+            message = ''
+            for item in analysis:
+                message+=str(item.zone)+':'+str(item.total_people)+'\n'
+            pywhatkit.sendwhatmsg(number,message, 22, 4)
+
+        return Response({"success": True, "message": "Notifications sent sucessfully"}, status=status.HTTP_200_OK)
+    except:
+        return Response({'success': False, "message": "Bad Request"}, status=status.HTTP_400_BAD_REQUEST)
+
+
 

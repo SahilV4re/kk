@@ -1,9 +1,8 @@
-# from krowdkam.client.models import Organization
 from django.db import models
 from django.utils.timezone import now
 # Create your models here.
 from django.contrib.auth.models import AbstractUser
-from client.models import Organization
+from client.models import *
 
 class User(AbstractUser):
     gender = models.CharField(max_length=10)
@@ -17,6 +16,11 @@ class User(AbstractUser):
     status = models.IntegerField(default=1)
     created_at = models.DateTimeField(default=now, editable=False)
     updated_at = models.DateTimeField(default=now, editable=False)
-    organization = models.ForeignKey(Organization,default=None,on_delete=models.SET_NULL,null=True)
-    verify_token = models.CharField(max_length=100, default='')
 
+
+class OrgSubscription(models.Model):
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    status = models.IntegerField(default=1)
+    created_at = models.DateTimeField(default=now, editable=False)
+    updated_at = models.DateTimeField(default=now, editable=False)
