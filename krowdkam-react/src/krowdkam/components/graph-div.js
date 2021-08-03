@@ -10,13 +10,14 @@ const Graph = ({graphDetails}) =>{
           id: "basic-bar"
         },
         xaxis: {
+          name:"hour",
           categories: Object.keys(graphDetails)
         }
       })
 
       const [seriesBar,setSeriesBar] = useState([
         {
-          name: "series-1",
+          name: "crowd",
           data: Object.values(graphDetails)
         }
       ])

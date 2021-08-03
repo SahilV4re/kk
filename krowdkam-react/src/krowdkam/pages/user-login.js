@@ -5,7 +5,7 @@ import "../styles/navbar.css";
 import Signup from "../components/signup";
 import Login from "../components/login";
 
-const UserLogin = ()=>{
+const UserLogin = ({typeHandler})=>{
 
     return (
         <>
@@ -18,8 +18,8 @@ const UserLogin = ()=>{
             </span>
             <Router>
                 <Switch>
-                    <Route path="/user-login/login">
-                        <Login type={"USER"}/>
+                    <Route exact path="/user-login/login">
+                        <Login type={"USER"} typeHandler={typeHandler}/>
                                 {/* <div class="inp-grp-ysb">
                                     <input type="text" required/>
                                     <span class="highlight"></span>

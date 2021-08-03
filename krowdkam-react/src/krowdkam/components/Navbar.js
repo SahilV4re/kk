@@ -1,8 +1,12 @@
 import React from "react";
 import "../styles/navbar.css";
 import Logo from "../images/Logo.png"
+import { Link } from "react-router-dom";
 
-const Navbar = ({type}) =>{
+const Navbar = ({type, logout}) =>{
+
+
+
     return (
     <>
     <nav id='header'>
@@ -21,26 +25,46 @@ const Navbar = ({type}) =>{
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"/></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                    </li>
+                    {type === "client"?(
+                    <>
+                        <li class="nav-item">
+                            <Link to = {'/'}><a class="nav-link " aria-current="page" >Home</a></Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link to = {'/client/'}><a class="nav-link" >Zones</a></Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link to = {'/client/zone-register'}><a class="nav-link " aria-current="page" >Zone Register</a></Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link to = {'/client/cam'}><a class="nav-link " aria-current="page" >Cam</a></Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link><a class="nav-link" onClick={logout}>Logout</a></Link>
+                        </li> 
+                    </>
+                    ):type === "user"?(
+                    <>
+                        <li class="nav-item">
+                            <Link to = {'/'}><a class="nav-link " aria-current="page" >Home</a></Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link to = {'/user/'}><a class="nav-link" >Locations</a></Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link><a class="nav-link"  onClick={logout}>Logout</a></Link>
+                        </li> 
+                    </>
+                    ):(
+                        <>
+                            <li class="nav-item">
+                                <Link to = {'/'}><a class="nav-link " aria-current="page" >Home</a></Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link to = {'/user-login/login'}><a class="nav-link" >Login</a></Link>
+                            </li> 
+                        </>
+                    )}
                 </ul>
                 </div>
             </div>

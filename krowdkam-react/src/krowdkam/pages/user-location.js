@@ -89,6 +89,7 @@ const UserLocation = () =>{
             console.log("Graph Response is: ",res.data);
             setGraphDetails(null);
             setGraphDetails(res.data);
+            // setShowGraph(true)
         })
     }
 
@@ -118,8 +119,12 @@ const UserLocation = () =>{
     return (
 
         <>
-            <img class="map" src={Imagica} alt="Imagica map"/>
             <div id="rides">
+                <div className="ride-image">
+                    <div>
+                    <img class="map" src={Imagica} alt="Imagica map"/>
+                    </div>
+                </div>
                 {/* <div class="row">
                     <div class="col zone">
                     VIVA EUROPA

@@ -5,7 +5,7 @@ import "../styles/navbar.css";
 import Signup from "../components/signup";
 import Login from "../components/login";
 
-const ClientLogin = ()=>{
+const ClientLogin = ({typeHandler})=>{
 
     return (
         <>
@@ -20,7 +20,7 @@ const ClientLogin = ()=>{
             <Router>
                 <Switch>
                     <Route  path="/client-login/login/">
-                    <Login type={"CLIENT"}/>
+                    <Login type={"CLIENT"} typeHandler={typeHandler}/>
                             
                                 {/* <div class="inp-grp-ysb">
                                     <input type="text" required/>

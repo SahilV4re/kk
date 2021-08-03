@@ -39,7 +39,14 @@ background-color: aqua; */
 /* display: grid;
   grid-template-columns: repeat(5, 1fr); */
 }
-
+#cont-client{
+  position: relative;
+  /* left:-1%; */
+  /* border:2px solid red;
+  background-color: aqua; */
+  /* display: grid;
+    grid-template-columns: repeat(5, 1fr); */
+  }
 .slick-prev {
     left: 3% !important;
     z-index: 1;

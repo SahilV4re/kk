@@ -1,8 +1,19 @@
-.inp-grp-ysb {
+.inp-grp-ysb-signup {
     position: relative;
     margin: 1.875rem 0 1.25rem;
+    left:2.5rem;
   }
-  
+  .inp-grp-ysb-signup-select {
+    position: relative;
+    margin: 1.875rem 0 1.25rem;
+    left:5rem;
+    /* width:10rem; */
+  }
+  .inp-grp-ysb {
+    position: relative;
+    margin: 1.875rem 0 1.25rem;
+    left:2.5rem;
+  }
   input {
     font-family: Roboto,sans-serif;
     font-size: 1.125rem;
@@ -99,7 +110,7 @@
       border:1px solid rgb(151, 151, 151);
       width: fit-content;
       padding-left: 1.563rem;
-      padding-right: 1.438rem;
+      padding-right: 3rem;
       padding-bottom: 0.125rem;
       border-radius: 0.313rem;
       position: absolute;
@@ -115,7 +126,7 @@
     font-size: 1.438rem;
     margin-top: 0.625rem;
     margin-bottom: -1.063rem;
-    
+    margin-left:2.5rem;
   }
   
   .btn-register
@@ -124,7 +135,8 @@
       margin-bottom: 0.813rem;
       margin-top: 0.625rem;
       position: relative;
-      width: 100%;
+      width: 70%;
+      left:20%;
       font-family:Roboto,sans-serif;
       font-size: 1.188rem;
       font-weight: 500;
@@ -211,6 +223,6 @@
     background-repeat: no-repeat;
     background-size: 100% 100%;
     /* position: relative; */
-    height: 90vh;
+    height: 100vh;
     
   }
