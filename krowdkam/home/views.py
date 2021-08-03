@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from guser.models import User
 from client.models import Organization,CCTVcam,Zone
-from .serializers import UserSerializer,OrgSerializer,ZoneSerializer,CCTVSerializer
+from .serializers import UserSerializer,ZoneSerializer,CCTVSerializer,OrgSerializer
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -32,6 +32,14 @@ from rest_framework import status
 #         orgser.save()
 
 #     return Response(orgser.data)
+@api_view(['GET'])
+def Dropdown(request):
+    permission_classes = (IsAuthenticated,)
+    try:
+        prg = OrgSerializer(Organization.objects.all(), many=True)
+        return Response({"success": True, "data": prg.data}, status=status.HTTP_200_OK)
+    except:
+        return Response({'success': False, "message": "Bad Request"}, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['POST'])
 def ZoneReg(request):
@@ -61,6 +69,13 @@ def ZoneReg(request):
     except:
         return Response({'success': False, "message": "Bad Request"}, status=status.HTTP_400_BAD_REQUEST)
 
+@api_view(['GET'])
+def Verification(request,vid):
+    try:
+        User.objects.filter(verify_token=vid).update(status=1)
+        return Response({"success": True}, status=status.HTTP_200_OK)
+    except:
+        return Response({"success": False, "message": "Bad Request"}, status=status.HTTP_400_BAD_REQUEST)
 
 from .serializers import MyTokenObtainPairSerializer
 from rest_framework.permissions import AllowAny
@@ -72,7 +87,7 @@ class MyObtainTokenPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
 from guser.models import User
-from home.serializers import RegisterSerializer,OrgRegisterSerializer
+from home.serializers import RegisterSerializer
 from rest_framework import generics
 
 
@@ -81,7 +96,7 @@ class RegisterView(generics.CreateAPIView):
     permission_classes = (AllowAny,)
     serializer_class = RegisterSerializer
 
-class OrgRegisterView(generics.CreateAPIView):
-    queryset = Organization.objects.all()
-    permission_classes = (AllowAny,)
-    serializer_class = OrgRegisterSerializer
+# class OrgRegisterView(generics.CreateAPIView):
+#     queryset = Organization.objects.all()
+#     permission_classes = (AllowAny,)
+#     serializer_class = OrgRegisterSerializer

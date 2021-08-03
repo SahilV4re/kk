@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.timezone import now
 # Create your models here.
 from django.contrib.auth.models import AbstractUser
+from client.models import *
 
 class User(AbstractUser):
     gender = models.CharField(max_length=10)
@@ -12,6 +13,14 @@ class User(AbstractUser):
     mobile = models.CharField(max_length=20,default='')
     email = models.CharField(max_length=500, default='')
     country_code = models.CharField(default="+91", max_length=10)
+    status = models.IntegerField(default=1)
+    created_at = models.DateTimeField(default=now, editable=False)
+    updated_at = models.DateTimeField(default=now, editable=False)
+
+
+class OrgSubscription(models.Model):
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None, null=True, blank=True)
     status = models.IntegerField(default=1)
     created_at = models.DateTimeField(default=now, editable=False)
     updated_at = models.DateTimeField(default=now, editable=False)

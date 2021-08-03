@@ -34,10 +34,11 @@ from .serializers import *
 import os
 import imutils
 import numpy as np
+from scipy.spatial import distance as dist
 from .detection import social_distance_config as config
 from .detection.detection import detect_people
 import argparse
-from scipy.spatial import distance as dist
+
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
