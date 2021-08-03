@@ -3,6 +3,7 @@ from django.utils.timezone import now
 # Create your models here.
 from django.utils import timezone
 import os
+from django.contrib.auth.models import AbstractUser
 
 '''
 def upload_cam_recordings(instance, filename):
@@ -25,6 +26,8 @@ class Organization(models.Model):
     logo = models.ImageField(default=None)
     password = models.CharField(max_length=200,default='')
     password2 = models.CharField(max_length=200,default='')
+    email = models.CharField(max_length=500, default='')
+
 
 
 class Zone(models.Model):

@@ -1,0 +1,2 @@
+id,name,description,address,long,lat,status,created_at,updated_at,logo,map,password,password2,email
+1,"Infiniti Mall","Infiniti Mall is a chain of shopping malls in India. It is a subsidiary of K. Raheja Constructions, which has been in the business of construction and property development since the 1960s. The first Infiniti Mall opened in 2004, in Andheri, Mumbai. This is the third oldest shopping mall in Mumbai.","Infiniti Mall, Andheri West, Mumbai",72.830900,19.141200,1,"2021-07-11 05:58:06.285011","2021-07-11 05:58:06.285011",infiniti.png,infiniti_map.jpg,inf,inf,
