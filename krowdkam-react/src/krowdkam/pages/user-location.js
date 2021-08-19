@@ -6,6 +6,7 @@ import "../styles/graph.css";
 import axios from "axios";
 import Graph from "../components/graph-div";
 import ZoneName from "../components/zone-name";
+import Station from "../images/dadar-station-map.jpg"
 
 const UserLocation = () =>{
     let {id} = useParams();
@@ -122,7 +123,7 @@ const UserLocation = () =>{
             <div id="rides">
                 <div className="ride-image">
                     <div>
-                    <img class="map" src={Imagica} alt="Imagica map"/>
+                    <img class="map" src={Station} alt="Imagica map"/>
                     </div>
                 </div>
                 {/* <div class="row">

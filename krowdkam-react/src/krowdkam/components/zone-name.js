@@ -34,14 +34,14 @@ const ZoneName = ({name, cam, status, graphHandler, zoneId, camId}) =>{
             </span> */}
             {/* <p data-tip data-for='happyFace'  type='error'>tooltip</p> */}
             <span>
-                <a class="btn myclass fb" data-tip data-for={`${name}-${cam}`} style={{backgroundColor: color["Less Crowd"]}} onClick = {()=>{
+                <a class="btn myclass fb" data-tip data-for={`${name}-${cam}`} style={{backgroundColor: color[status[1]]}} onClick = {()=>{
                     // console.log("Hey: ",status[0],status[1],name+'-'+cam);
                     graphHandler(zoneId,camId);
                 }}></a><span >{name}-{cam}</span>
             </span>
             <ReactTooltip id={`${name}-${cam}`}>
-                {/* <span>{status[0]}, {status[1]}</span> */}
-                <span>12,Less Crowd</span>
+                <span>{status[0]}, {status[1]}</span>
+                {/* <span>12,Less Crowd</span> */}
             </ReactTooltip>
         </div>
         

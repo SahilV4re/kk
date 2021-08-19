@@ -147,12 +147,12 @@ def zones(request, id):
 #     return Response({"success": True, "data": res, "code": 1})
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 def subscription(request):
     #permission_classes = (IsAuthenticated,)
 
-    uid = request.POST.get('uid')
-    oid = request.POST.get('oid')
+    uid = request.GET.get('uid')
+    oid = request.GET.get('oid')
 
     try:
 
@@ -176,8 +176,8 @@ def whatsapp_user(request):
             analysis = AnalysisReport.objects.filter(organization=organization_obj)
             message = ''
             for item in analysis:
-                message+=str(item.zone)+':'+str(item.total_people)+'\n'
-            pywhatkit.sendwhatmsg(number,message, 22, 4)
+                message+=str(item.zone.name)+':'+str(item.total_people)+'\n'
+            pywhatkit.sendwhatmsg(number,message, 18,51)
 
         return Response({"success": True, "message": "Notifications sent sucessfully"}, status=status.HTTP_200_OK)
     except:

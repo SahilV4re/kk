@@ -4,12 +4,12 @@
     /* width: 55rem; */
     /* border-top: none!important;
     left: 10%;  */
-    width:40%;
+    width:35%;
     /* height:100%; */
     position: relative;
     left:30%;
-    height:100%;
-    border-radius: 50%;
+    height:5%;
+    border-radius: 20%;
     
 }
 
@@ -98,7 +98,7 @@ background-color: rgb(240, 240, 240) ;
 /* border: 0.1rem solid rgb(236,45,48); */
 left: 18%;
 width: 53rem;
-height: 26rem;
+height: 45rem;
 margin-bottom: 2rem;
 margin-top: 0.5rem;
 /* padding-left: 0.3rem; */
@@ -116,6 +116,7 @@ box-shadow: 1px 1px 10px 1px grey;
     display: grid; 
     grid-template-columns: auto auto auto;
     grid-row-gap: 20px;
+    padding-top: 250px;
 }
 
 .icon-div{

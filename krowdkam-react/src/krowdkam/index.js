@@ -10,6 +10,8 @@ import ClientHome from "./pages/client-home";
 import ClientZoneReg from "./pages/client-zone-register";
 import ClientCam from "./pages/client-cam";
 import Home from './pages/home';
+import { ToastContainer,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -99,6 +101,7 @@ const Krowdkam = ()=>{
                 </Route>
                 <Route exact path="/user">
                     <Navbar type={type} logout={Logout}/>
+                    <ToastContainer/>
                     <UserHome organization = {organization}/>
                 </Route>
                 <Route exact path="/user/:id">
