@@ -36,9 +36,9 @@ const Navbar = ({type, logout}) =>{
                         <li class="nav-item">
                             <Link to = {'/client/zone-register'}><a class="nav-link " aria-current="page" >Zone Register</a></Link>
                         </li>
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                             <Link to = {'/client/cam'}><a class="nav-link " aria-current="page" >Cam</a></Link>
-                        </li>
+                        </li> */}
                         <li class="nav-item">
                             <Link><a class="nav-link" onClick={logout}>Logout</a></Link>
                         </li> 

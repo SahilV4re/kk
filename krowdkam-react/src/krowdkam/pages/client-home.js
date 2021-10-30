@@ -15,7 +15,7 @@ const ClientHome = ({organization}) =>{
     const [zones, setZones] = useState([{
         name:"Gold-Rush",
         description:"RollerCoaster",
-        id:"1"
+        id:"3"
     }])
 
 

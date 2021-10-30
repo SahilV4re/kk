@@ -10,6 +10,11 @@ const Login = ({type, typeHandler}) =>{
         password:"",
     })
 
+    const [clientLogin,setClientLogin] = useState({
+        username:"imagica",
+        password:"imagica@123",
+    })
+
     const changeHandler = (e) =>{
         console.log("Change is: ",e.target.name,e.target.value);
         // const state = userRegister;
@@ -19,29 +24,40 @@ const Login = ({type, typeHandler}) =>{
     
     const submitHandler = (e) =>{
         e.preventDefault();
-        console.log("User states are: ",userLogin);
-        axios.post('/login/',userLogin)
-        .then(res=>{
-            console.log("Response is: ",res);
-            if(res.data.access){
-                console.log("Data is: ",res.data.access);
-                localStorage.setItem('krowdkam-access',res.data.access);
-                localStorage.setItem('krowdkam-refresh',res.data.refresh);
-                if(type == "USER"){
-                    window.location.href="http://localhost:3000/user";
-                    localStorage.setItem('krowdkam-account-type',"user");
-                    typeHandler("user");
-                }
-                else{
-                    localStorage.setItem('krowdkam-account-type',"client");
-                    window.location.href="http://localhost:3000/client";
-                    typeHandler("client");
-                }
-            }
 
-        }).catch(e=>{
-            console.log("Error is: ",e)
-        })
+        if(type == "CLIENT"){
+            console.log('Client Login');
+            localStorage.setItem('krowdkam-account-type',"client");
+            window.location.href="http://localhost:3000/client";
+            typeHandler("client");
+
+        } else{
+
+            console.log("User states are: ",userLogin);
+            axios.post('/login/',userLogin)
+            .then(res=>{
+                console.log("Response is: ",res);
+                if(res.data.access){
+                    console.log("Data is: ",res.data.access);
+                    localStorage.setItem('krowdkam-access',res.data.access);
+                    localStorage.setItem('krowdkam-refresh',res.data.refresh);
+                    if(type == "USER"){
+                        window.location.href="http://localhost:3000/user";
+                        localStorage.setItem('krowdkam-account-type',"user");
+                        typeHandler("user");
+                    }
+                    else{
+                        localStorage.setItem('krowdkam-account-type',"client");
+                        window.location.href="http://localhost:3000/client";
+                        typeHandler("client");
+                    }
+                }
+    
+            }).catch(e=>{
+                console.log("Error is: ",e)
+            })
+        }
+
     }
 
     return (

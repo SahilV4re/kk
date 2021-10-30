@@ -177,7 +177,7 @@ def whatsapp_user(request):
             message = ''
             for item in analysis:
                 message+=str(item.zone.name)+':'+str(item.total_people)+'\n'
-            pywhatkit.sendwhatmsg(number,message, 18,51)
+            pywhatkit.sendwhatmsg(number,message, 20,44)
 
         return Response({"success": True, "message": "Notifications sent sucessfully"}, status=status.HTTP_200_OK)
     except:

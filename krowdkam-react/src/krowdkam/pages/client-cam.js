@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Webcam from "react-webcam";
 import "../styles/client-cam.css";
+import { toast } from "react-toastify";
+
 
 const ClientCam = ({organization}) =>{
 
@@ -102,7 +104,9 @@ const ClientCam = ({organization}) =>{
             // Replace zoneId with 3
             axios.get(`/client/crowd_count/?oid=1&&zid=${zoneId}&&iid=${res.data.id}&&position=Home`)
             .then(res=>{
-                console.log("Total count detected: ",res);
+                console.log("Total count detected: ",res.data);
+                toast.success(`Image has been uploaded`);
+
             })
         })
 

@@ -12,7 +12,7 @@ const ZoneDetail = ({image, data}) =>{
                 <p class="card-text" style = {{height:"8rem"}}>{data.description}</p>
                 {/* </div> */}
                 <Link to={`/client/cam/${data.id}`}>
-                    <button class="btn btn-primary">Details</button>
+                    <button class="btn btn-primary">Upload</button>
                 </Link>
             </div>
         </div>
