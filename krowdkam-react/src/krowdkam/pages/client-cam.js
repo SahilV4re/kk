@@ -141,7 +141,7 @@ const ClientCam = ({organization}) =>{
                 <label>Birth-Date: </label>
                 <input  onChange={(e)=> handler(e)} type='date' name='bdate' id="bdate"/>
                 <br/> */}
-                <button type="Submit">Submit</button>
+                <button class="btn btn-success cam-button" >Submit</button>
             </form>
 
             </div>

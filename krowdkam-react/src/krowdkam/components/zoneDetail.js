@@ -5,7 +5,7 @@ import { Route, Switch, Link, BrowserRouter as Router } from "react-router-dom";
 const ZoneDetail = ({image, data}) =>{
     return (
         <div class="card my-4 mx-4 shadow p-3 mb-5 bg-white rounded" style={{width: "18rem"}}>
-            {/* <img class="card-img-top" src={image} alt="Card image cap"/> */}
+            <img class="card-img-top" src={image} alt="Card image cap"/>
             <div class="card-body">
                 <h5 class="card-title">{data.name}</h5>
                 {/* <div style = {{height:"10rem"}}> */}

@@ -1,5 +1,5 @@
 import React,{useEffect, useState}  from "react";
-import Imagica from "../images/imagica.jpg";
+import Platform from "../images/dadarPlatform.jpg";
 import "../styles/userlocation.css";
 import "../styles/graph.css";
 import axios from "axios";
@@ -13,8 +13,20 @@ import ZoneDetail from "../components/zoneDetail";
 const ClientHome = ({organization}) =>{
     let id = organization.id;
     const [zones, setZones] = useState([{
-        name:"Gold-Rush",
-        description:"RollerCoaster",
+        name:"Platform 1",
+        description:"region near platform 1",
+        id:"3"
+    },{
+        name:"Platform 2",
+        description:"region near platform 2",
+        id:"3"
+    },{
+        name:"Platform 3",
+        description:"region near platform 3",
+        id:"3"
+    },{
+        name:"Platform 4",
+        description:"region near platform 4",
         id:"3"
     }])
 
@@ -36,7 +48,7 @@ const ClientHome = ({organization}) =>{
             <div style={{display:"grid",gridTemplateColumns:"repeat(3,0.5fr)"}}>
                 {zones.map(zone=>{
                     return (
-                        <ZoneDetail data={zone}/>
+                        <ZoneDetail image = {Platform} data={zone}/>
                     )
                 })}
                 {/* <ZoneDetail image={Imagica} data={{name:"Gold-rush",description:"Heyy"}}/>

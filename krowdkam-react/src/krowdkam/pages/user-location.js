@@ -72,15 +72,18 @@ const UserLocation = () =>{
     useEffect(()=>{
         console.log("Heyy",localStorage.getItem('krowdkam-access'));
         const token = localStorage.getItem('krowdkam-access');
-        axios.get(`/guser/api/zones/${id}/`,{ headers: {"Authorization" : `Bearer ${token}`}})
-        .then(res=>{
-            console.log("Response is: ",res);
-            // setZones(res.data.data.zones);
-            // setLiveAnalysis(res.data.data.liveAnalysis);
-            // setZonewisecams(res.data.data.zonewisecams);
-            setLocationInfo(res.data.data);
-
-        })
+        setInterval(()=>{
+            console.log("Heyy",localStorage.getItem('krowdkam-access'));
+            axios.get(`/guser/api/zones/${id}/`,{ headers: {"Authorization" : `Bearer ${token}`}})
+            .then(res=>{
+                console.log("Response is: ",res);
+                // setZones(res.data.data.zones);
+                // setLiveAnalysis(res.data.data.liveAnalysis);
+                // setZonewisecams(res.data.data.zonewisecams);
+                setLocationInfo(res.data.data);
+    
+            })
+        },3000)
     },[id])
     
     const graphHandler = (zoneId,camId) =>{
