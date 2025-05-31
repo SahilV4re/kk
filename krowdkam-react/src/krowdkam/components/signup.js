@@ -80,7 +80,7 @@ const Signup = ({type}) =>{
                     <input type="email" onChange={changeHandler}  name="email" value={userRegister.email} required/>
                     <span class="highlight"></span>
                     <span class="bar"></span>
-                    <label>email</label>
+                    <label>Email</label>
                 </div>
                 {/* <div class="inp-grp-ysb-signup">
                     <input type="text" onChange={changeHandler}  name="mobile" value={userRegister.mobile} required/>
